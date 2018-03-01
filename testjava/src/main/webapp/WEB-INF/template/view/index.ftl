@@ -3,8 +3,9 @@
 <body>
 
 <h2>success page</h2></br>
-${name}
-
+<#assign getUserMethod= getUserMethod("1")/>
+${getUserMethod}
+${getUserMethod}
 </body>
 
 </html>
