@@ -24,6 +24,25 @@
           <target>1.6</target>
         </configuration>
       </plugin>
+
+      <plugin>
+        <groupId>org.apache.tomcat.maven</groupId>
+        <artifactId>tomcat7-maven-plugin</artifactId>
+        <version>${tomcat.maven.version}</version>
+        <configuration>
+          <port>8888</port>
+          <path>/${project.build.finalName}</path>
+          <!-- spring profile  -->
+          <systemProperties>
+            <systemProperty>
+              <name>spring.profiles.active</name>
+              <value>development</value>
+            </systemProperty>
+          </systemProperties>
+        </configuration>
+
+      </plugin>
+
     </plugins>
   </build>
 
@@ -126,6 +145,10 @@
       <version>4.12</version>
     </dependency>
   </dependencies>
+
+
+
+
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
@@ -187,6 +210,8 @@
     <commons-digester.version>2.1</commons-digester.version>
     <log4j.version>1.2.17</log4j.version>
     <freemarker.version>2.3.19</freemarker.version>
+
+    <tomcat.maven.version>2.2</tomcat.maven.version>
   </properties>
 
 </project>

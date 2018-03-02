@@ -1,3 +1,4 @@
-test\controller\testindex.class
 test\util\spring\SpringUtils.class
 test\util\ftlutil\Ftlfirsttest.class
+test\controller\testindex.class
+test\index\IndexController.class
