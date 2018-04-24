@@ -1,4 +1,4 @@
-package test.util.spring;
+package test.util.Spring;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.DisposableBean;
