@@ -11,25 +11,18 @@ import java.sql.*;
 @Component
 public class JdbcUtils {
 
-    @Value(value = "${connection.driver}")
-    private  String connection_driver = null;
-    @Value(value = "${connection.url}")
-    private  String connection_url = null;
-    @Value(value = "${connection.username}")
-    private  String connection_username = null;
-    @Value(value = "${connection.password}")
-    private  String connection_password = null;
-
-    private JdbcUtils(){}
-
-    private static JdbcUtils jdbcUtils = new JdbcUtils();
-    public static  JdbcUtils getJdbcUtils(){
-        return jdbcUtils;
-    }
+    @Value("${connection.driver}")
+    public  String connection_driver;
+    @Value("${connection.url}")
+    public  String connection_url;
+    @Value("${connection.username}")
+    public  String connection_username;
+    @Value("${connection.password}")
+    public  String connection_password;
 
     public  Connection getConnection() throws SQLException {
-        System.out.println("正在连接数据库：【驱动：" + getJdbcUtils().connection_driver + "，连接串：" + getJdbcUtils().connection_url + "，连接用户：" + getJdbcUtils().connection_username + "，连接密码：" + getJdbcUtils().connection_password + "】");
-        return DriverManager.getConnection(getJdbcUtils().connection_url,getJdbcUtils().connection_username,getJdbcUtils().connection_password);
+        System.out.println("正在连接数据库：【驱动：" + connection_driver + "，连接串：" + connection_url + "，连接用户：" + connection_username + "，连接密码：" + connection_password + "】");
+        return DriverManager.getConnection(connection_url,connection_username,connection_password);
     }
 
     public  void release(Connection connection, Statement statement, ResultSet rs){
@@ -47,6 +40,8 @@ public class JdbcUtils {
         }catch (SQLException var1){
             var1.printStackTrace();
         }
+        System.out.println("释放成功...");
+
     }
 
 }

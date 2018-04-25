@@ -1,13 +1,14 @@
 package test.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-import test.util.jdbc.JdbcUtils;
 
-import java.io.IOException;
-import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by lb on 2018/2/8.
@@ -18,17 +19,13 @@ public class testindex {
 
     @RequestMapping("/index")
     public String index() throws Exception{
-
-//        Ftlfirsttest ftlfirsttest = (Ftlfirsttest)SpringUtils.getBean("ftlfirsttest");
-//        String message = (String) ftlfirsttest.exec(Arrays.asList("2222222"));
-//        System.out.println(message);
-
         return  "/view/index";
     }
 
     @RequestMapping("/testftl")
     public ModelAndView testftl(String id) throws SQLException {
-        Connection connection = JdbcUtils.getJdbcUtils().getConnection();
+
+
 
         ModelAndView mav  = new ModelAndView();
         mav.setViewName( "/view/index");
@@ -37,8 +34,19 @@ public class testindex {
     }
 
     @RequestMapping("/throexce")
-    public void test() throws IOException{
-        throw new NullPointerException();
+    @ResponseBody
+    public Map<String,String> throexce(Integer a,String bbb) {
+        HashMap<String,String> map = new HashMap<String, String>();
+        map.put("1","22222");
+        map.put(a+"",bbb);
+        return map;
+    }
+    @RequestMapping("/testjson")
+    @ResponseBody
+    public Map<String,String> testjson() throws SQLException {
+        HashMap<String,String> map = new HashMap<String, String>();
+        map.put("1","22222");
+        return map;
     }
 
 }

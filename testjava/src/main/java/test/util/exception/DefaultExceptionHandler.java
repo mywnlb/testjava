@@ -42,14 +42,4 @@ public class DefaultExceptionHandler {
         mv.setViewName("error/403");
         return mv;
     }
-
-    @ExceptionHandler()
-    @ResponseStatus(HttpStatus.FORBIDDEN)
-    public ModelAndView testexception(NativeWebRequest request, Exception e) {
-
-        ModelAndView mv = new ModelAndView();
-        mv.addObject("error");
-        mv.setViewName("error/403");
-        return mv;
-    }
 }
