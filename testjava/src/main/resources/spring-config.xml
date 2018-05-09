@@ -64,8 +64,10 @@
 
     </bean>
 
+    <!-- 代理数据源，事物支持 -->
     <bean id="dataSourceProxy" class="org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy">
         <property name="targetDataSource" ref="dataSource"/>
     </bean>
 
+    <!-- jpa Entity Factory 配置 -->
 </beans>
