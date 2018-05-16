@@ -4,8 +4,21 @@
 
 <web-app>
   <display-name>testweb</display-name>
+  <servlet>
+    <servlet-name>lbmvc</servlet-name>
+    <servlet-class>TestSpringMvc.Servlet.DispatchServlet</servlet-class>
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>testspringmvc.properties</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>lbmvc</servlet-name>
+    <url-pattern>/*</url-pattern>
+  </servlet-mapping>
   <!--初始化文件开始-->
-  <context-param>
+<!--  <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>
       classpath:spring-config.xml
@@ -29,7 +42,7 @@
     <url-pattern>/*</url-pattern>
   </servlet-mapping>
 
-  <!-- 编码过滤器 -->
+  &lt;!&ndash; 编码过滤器 &ndash;&gt;
   <filter>
     <filter-name>encodingFilter</filter-name>
     <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -42,6 +55,6 @@
   <filter-mapping>
     <filter-name>encodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
-  </filter-mapping>
+  </filter-mapping>-->
 
 </web-app>

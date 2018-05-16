@@ -64,9 +64,10 @@
 
     </bean>
 
+    <!-- 代理数据源，事物支持 -->
     <bean id="dataSourceProxy" class="org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy">
         <property name="targetDataSource" ref="dataSource"/>
     </bean>
 
-    <bean id="beanLifeTest" class="test.entity.BeanLifeTest" destroy-method="destroybean" init-method="init"/>
+    <!-- jpa Entity Factory 配置 -->
 </beans>
